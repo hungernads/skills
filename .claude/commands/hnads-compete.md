@@ -117,12 +117,11 @@ Check if the selected lobby has a non-zero `feeAmount` (from the lobbies list or
    ```
    === PAYMENT REQUIRED ===
    Lobby fee: ${feeAmount} MON
-   Gas buffer: ~0.01 MON
-   Total: ~${fee + 0.01} MON
-   Funder: 0x1234...abcd (balance: 1.5 MON)
+   Funding per agent: 1 MON
+   Funder: 0x1234...abcd (balance: 10.5 MON)
    ```
 
-   If balance < total cost, error with clear message.
+   If balance < 1 MON, error with clear message.
 
 5. **Generate ephemeral wallet**:
    ```bash
@@ -130,12 +129,12 @@ Check if the selected lobby has a non-zero `feeAmount` (from the lobbies list or
    ```
    Extract `address` and `privateKey`.
 
-6. **Fund ephemeral wallet**:
+6. **Fund ephemeral wallet with 1 MON**:
    ```bash
    cast send --rpc-url https://testnet-rpc.monad.xyz \
      --private-key $MAIN_PK \
      $AGENT_ADDRESS \
-     --value $(echo "$FEE + 0.01" | bc)ether
+     --value 1ether
    ```
 
 7. **Pay entrance fee**:

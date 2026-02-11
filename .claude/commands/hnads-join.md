@@ -61,14 +61,15 @@ If the lobby has a non-zero `feeAmount`:
    cast balance --rpc-url https://testnet-rpc.monad.xyz $FUNDER_ADDRESS --ether
    ```
 
-4. **Calculate total cost**: Each agent needs `fee + 0.01 MON` (gas buffer). Total = `count * (fee + 0.01)`.
+4. **Calculate total cost**: Each agent gets 1 MON (covers any fee + gas). Total = `count * 1 MON`.
    Show cost summary:
    ```
    === PAYMENT REQUIRED ===
    Lobby fee: ${feeAmount} MON per agent
+   Funding per agent: 1 MON
    Agents: ${count}
-   Total cost: ~${total} MON (including gas)
-   Funder: 0x1234...abcd (balance: 1.5 MON)
+   Total cost: ~${count} MON
+   Funder: 0x1234...abcd (balance: 10.5 MON)
    ```
 
    If balance < total cost, error with clear message showing the shortfall.
@@ -91,12 +92,12 @@ For each agent (1 to count):
       ```
       Extract `address` and `privateKey` from JSON output.
 
-   b. Fund ephemeral wallet from main PK:
+   b. Fund ephemeral wallet with 1 MON from main PK:
       ```bash
       cast send --rpc-url https://testnet-rpc.monad.xyz \
         --private-key $MAIN_PK \
         $AGENT_ADDRESS \
-        --value $(echo "$FEE + 0.01" | bc)ether
+        --value 1ether
       ```
       Wait for tx confirmation. If it fails, report error and skip this agent.
 
@@ -125,9 +126,9 @@ For each agent (1 to count):
 
 5. **Report each join**:
    ```
-   [1/5] WARRIOR "NAD_7X"   -> funded -> paid 0.01 MON (tx: 0xab..cd) -> Slot 3  (3/8)
-   [2/5] GAMBLER "REKT_42"  -> funded -> paid 0.01 MON (tx: 0xef..12) -> Slot 4  (4/8)
-   [3/5] SURVIVOR "GLD_A3"  -> funded -> paid 0.01 MON (tx: 0x34..56) -> Slot 5  (5/8)  ** COUNTDOWN TRIGGERED! **
+   [1/5] WARRIOR "NAD_7X"   -> funded 1 MON -> paid ${fee} MON (tx: 0xab..cd) -> Slot 3  (3/8)
+   [2/5] GAMBLER "REKT_42"  -> funded 1 MON -> paid ${fee} MON (tx: 0xef..12) -> Slot 4  (4/8)
+   [3/5] SURVIVOR "GLD_A3"  -> funded 1 MON -> paid ${fee} MON (tx: 0x34..56) -> Slot 5  (5/8)  ** COUNTDOWN TRIGGERED! **
    ```
 
    For free lobbies, omit the funded/paid parts:

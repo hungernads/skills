@@ -60,15 +60,14 @@ If `--fee` was provided (or lobby has a non-zero fee):
    cast balance --rpc-url https://testnet-rpc.monad.xyz $FUNDER_ADDRESS --ether
    ```
 
-4. **Calculate total cost**: Each agent needs `fee + 0.01 MON` (gas buffer). Total = `count * (fee + 0.01)`.
+4. **Calculate total cost**: Each agent gets 1 MON (covers any fee + gas). Total = `count * 1 MON`.
    Show cost summary and proceed:
    ```
    === WALLET SETUP ===
    Funder: 0x1234...abcd
-   Balance: 1.5 MON
-   Fee per agent: 0.01 MON
-   Gas buffer: 0.01 MON per agent
-   Total cost: ~0.10 MON (5 agents × 0.02 MON)
+   Balance: 10.5 MON
+   Funding per agent: 1 MON
+   Total cost: ~5.0 MON (5 agents × 1 MON)
    ```
 
    If balance < total cost, error with clear message showing the shortfall.
@@ -87,12 +86,12 @@ For each agent (1 to count):
       ```
       Extract `address` and `privateKey` from JSON output.
 
-   b. Fund ephemeral wallet from main PK:
+   b. Fund ephemeral wallet with 1 MON from main PK:
       ```bash
       cast send --rpc-url https://testnet-rpc.monad.xyz \
         --private-key $MAIN_PK \
         $AGENT_ADDRESS \
-        --value $(echo "$FEE + 0.01" | bc)ether
+        --value 1ether
       ```
       Wait for tx confirmation. If it fails, report error and skip this agent.
 
@@ -121,8 +120,8 @@ For each agent (1 to count):
 
 5. Show progress for each agent:
    ```
-   [1/5] WARRIOR "NAD_7X" -> funded 0x1234...abcd -> paid 0.01 MON (tx: 0xabcd...) -> Joined!
-   [2/5] TRADER  "REKT_42" -> funded 0x5678...efgh -> paid 0.01 MON (tx: 0xefgh...) -> Joined!
+   [1/5] WARRIOR "NAD_7X" -> funded 1 MON -> paid ${fee} MON (tx: 0xabcd...) -> Joined!
+   [2/5] TRADER  "REKT_42" -> funded 1 MON -> paid ${fee} MON (tx: 0xefgh...) -> Joined!
    ```
 
 ### Step 4: Summary
