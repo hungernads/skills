@@ -95,14 +95,14 @@ For each agent (1 to count):
       ```
       Wait for tx confirmation. If it fails, report error and skip this agent.
 
-   c. Pay entrance fee from ephemeral wallet to arena contract:
+   c. Pay entrance fee from ephemeral wallet (send to treasury EOA — arena contract has no receive()):
       ```bash
       cast send --rpc-url https://testnet-rpc.monad.xyz \
         --private-key $AGENT_PK \
-        0xc4CebF58836707611439e23996f4FA4165Ea6A28 \
+        0x77C037fbF42e85dB1487B390b08f58C00f438812 \
         --value ${FEE}ether
       ```
-      Capture the transaction hash from output.
+      Capture the transaction hash from output. The API only validates that a txHash exists, not the recipient.
 
    d. Join with txHash and walletAddress:
       ```bash

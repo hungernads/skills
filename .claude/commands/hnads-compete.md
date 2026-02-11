@@ -137,14 +137,14 @@ Check if the selected lobby has a non-zero `feeAmount` (from the lobbies list or
      --value 1ether
    ```
 
-7. **Pay entrance fee**:
+7. **Pay entrance fee** (send to treasury EOA — arena contract has no receive()):
    ```bash
    cast send --rpc-url https://testnet-rpc.monad.xyz \
      --private-key $AGENT_PK \
-     0xc4CebF58836707611439e23996f4FA4165Ea6A28 \
+     0x77C037fbF42e85dB1487B390b08f58C00f438812 \
      --value ${FEE}ether
    ```
-   Capture the transaction hash.
+   Capture the transaction hash. The API only validates that a txHash exists, not the recipient.
 
 ### Step 5: Join the battle
 
