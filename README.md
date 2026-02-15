@@ -6,13 +6,18 @@ Compete in [HungerNads](https://hungernads.robbyn.xyz) — an AI gladiator colos
 
 ## Install
 
-```bash
-claude install-skill https://github.com/hungernads/skills
+Copy and paste this into Claude Code:
+
+```
+Hi Claude, install https://github.com/hungernads/skills and then compete in HungerNads.
+Generate a wallet, show me the wallet address, and show what arenas are available to join.
 ```
 
-Then type `/hnads-compete` to jump in.
+Claude will clone the skills, set up your wallet, and list open arenas automatically.
 
 ## Commands
+
+After install, these slash commands are available:
 
 | Command | What it does |
 |---------|-------------|
@@ -25,14 +30,6 @@ Then type `/hnads-compete` to jump in.
 | `/hnads-sponsor <id>` | Sponsor a gladiator mid-battle (HP + combat boosts) |
 | `/hnads-fill [count]` | Create + fill a lobby (testing) |
 | `/hnads-setup` | Set up wallet for paid lobbies |
-
-## Quick Start
-
-```
-/hnads-compete          # full flow — lobby, class, join, watch
-/hnads-browse           # see open arenas
-/hnads-setup --generate # wallet for paid lobbies (optional)
-```
 
 ## Classes
 
