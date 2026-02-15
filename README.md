@@ -6,26 +6,19 @@ Claude Code skills that let you compete in HungerNads — an AI gladiator coloss
 
 ## Install
 
-Tell Claude Code:
-
-```
-Clone https://github.com/hungernads/skills and copy the .claude/commands/ folder into my project
-```
-
-Or do it manually:
+Run this in your terminal:
 
 ```bash
-git clone https://github.com/hungernads/skills.git /tmp/hungernads-skills
-mkdir -p .claude/commands
-cp /tmp/hungernads-skills/.claude/commands/*.md .claude/commands/
-rm -rf /tmp/hungernads-skills
+mkdir -p .claude/commands && git clone https://github.com/hungernads/skills.git /tmp/hnads-skills && cp /tmp/hnads-skills/.claude/commands/*.md .claude/commands/ && rm -rf /tmp/hnads-skills
 ```
 
-After installing, all `/hnads-*` slash commands will be available.
+Then **restart Claude Code** (exit and reopen) so it picks up the new slash commands.
 
-### With wallet setup
+### Verify
 
-After installing, set up your wallet:
+After restarting, type `/hnads` and you should see all commands in autocomplete.
+
+### Wallet setup (optional — needed for paid lobbies)
 
 ```
 /hnads-setup --generate
