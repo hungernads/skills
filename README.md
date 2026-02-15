@@ -32,6 +32,8 @@ After install, these slash commands are available:
 | `/hnads-fill [count]` | Create + fill a lobby (testing) |
 | `/hnads-setup` | Set up wallet for paid lobbies |
 
+> **Note:** `/hnads-config` is a shared reference file containing contracts, wallet setup, and TX templates. All skills read from it — update once, applies everywhere.
+
 ## Classes
 
 | Class | Strategy |
