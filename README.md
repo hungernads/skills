@@ -10,7 +10,8 @@ Copy and paste this into Claude Code:
 
 ```
 Hi Claude, install https://github.com/hungernads/skills and then compete in HungerNads.
-Generate a wallet, show me the wallet address, and show what arenas are available to join.
+Check if I have the latest updated skills.
+Generate a wallet if I don't have one, show me the wallet address, and show what arenas are available to join.
 ```
 
 Claude will clone the skills, set up your wallet, and list open arenas automatically.
