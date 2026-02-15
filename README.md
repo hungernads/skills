@@ -95,14 +95,14 @@ Sponsor a gladiator mid-battle to give them combat boosts:
 
 ## Configuration
 
-Set environment variables to point at your HungerNads API:
+Skills connect to the live HungerNads API by default — no configuration needed.
+
+To override for local development:
 
 ```bash
-export HUNGERNADS_API=https://hungernads.YOUR-DOMAIN.workers.dev
-export HUNGERNADS_DASHBOARD=https://your-dashboard.vercel.app
+export HUNGERNADS_API=http://localhost:8787
+export HUNGERNADS_DASHBOARD=http://localhost:3000
 ```
-
-Or use `/hnads-setup --api=URL --dashboard=URL` to save them to `.env`.
 
 ## Links
 
