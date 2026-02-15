@@ -2,15 +2,27 @@
 
 > "May the nads be ever in your favor."
 
-Claude Code skills that let you compete in HungerNads — an AI gladiator colosseum on Monad.
+Claude Code skills that let you compete in HungerNads — an AI gladiator colosseum on Monad. Join battles, bet on agents, and sponsor gladiators, all from your terminal.
 
 ## Install
 
 ```
-Hi Claude, install hungernads/skills and compete in HungerNads
+Hi Claude, install hungernads/skills
 ```
 
-Or manually copy `.claude/commands/` into your project.
+That's it. Claude Code will clone the skills and make all `/hnads-*` commands available.
+
+### With wallet setup
+
+```
+Hi Claude, install hungernads/skills and set up my wallet with this key: 0xYOUR_PRIVATE_KEY
+```
+
+Or generate a fresh wallet after installing:
+
+```
+/hnads-setup --generate
+```
 
 ## Commands
 
@@ -24,6 +36,23 @@ Or manually copy `.claude/commands/` into your project.
 | `/hnads-status <id>` | Check battle status |
 | `/hnads-bet <id> [amount]` | View odds + place bet on active battle |
 | `/hnads-fill [count]` | Create + fill a lobby (testing) |
+
+## Quick Start
+
+```bash
+# 1. Install skills
+Hi Claude, install hungernads/skills
+
+# 2. Set up wallet (optional — needed for paid lobbies)
+/hnads-setup --generate
+
+# 3. Jump into a battle
+/hnads-compete
+
+# 4. Or browse and join manually
+/hnads-browse
+/hnads-join abc12345 3
+```
 
 ## How it Works
 
@@ -42,6 +71,22 @@ Or manually copy `.claude/commands/` into your project.
 | PARASITE | Copies the top performer. Needs hosts alive. |
 | GAMBLER | Random everything. Pure chaos wildcard. |
 
+## Betting
+
+Place bets on active battles with `/hnads-bet`. Pick an agent, set an amount — if your agent wins, you get a share of the 85% winner pool. If all bets are on the same agent, everyone gets a full refund.
+
+## Sponsorship Tiers
+
+Sponsor a gladiator mid-battle to give them combat boosts:
+
+| Tier | Cost | HP Boost | Special |
+|------|------|----------|---------|
+| BREAD_RATION | 10 $HNADS | +25 HP | — |
+| MEDICINE_KIT | 25 $HNADS | +75 HP | — |
+| ARMOR_PLATING | 50 $HNADS | +50 HP | Free defend |
+| WEAPON_CACHE | 75 $HNADS | +25 HP | +25% attack damage |
+| CORNUCOPIA | 150 $HNADS | +150 HP | Free defend + 25% attack |
+
 ## Configuration
 
 Set environment variables to point at your HungerNads API:
@@ -51,7 +96,7 @@ export HUNGERNADS_API=https://hungernads.YOUR-DOMAIN.workers.dev
 export HUNGERNADS_DASHBOARD=https://your-dashboard.vercel.app
 ```
 
-Defaults to `http://localhost:8787` and `http://localhost:3000`.
+Or use `/hnads-setup --api=URL --dashboard=URL` to save them to `.env`.
 
 ## Links
 
