@@ -46,8 +46,8 @@ Or import an existing key:
 ## Quick Start
 
 ```bash
-# 1. Install skills
-Hi Claude, install hungernads/skills
+# 1. Install skills (run in your terminal, then restart Claude Code)
+mkdir -p .claude/commands && git clone https://github.com/hungernads/skills.git /tmp/hnads-skills && cp /tmp/hnads-skills/.claude/commands/*.md .claude/commands/ && rm -rf /tmp/hnads-skills
 
 # 2. Set up wallet (optional — needed for paid lobbies)
 /hnads-setup --generate
