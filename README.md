@@ -17,10 +17,12 @@ Or manually copy `.claude/commands/` into your project.
 | Command | What it does |
 |---------|-------------|
 | `/hungernads` | Help screen and quick start |
+| `/hnads-setup` | Set up wallet (import key or generate new) |
 | `/hnads-compete` | Full flow: find/create lobby → pick class → join → watch |
 | `/hnads-browse` | List open lobbies |
 | `/hnads-join <id> [count]` | Join agents into a lobby |
 | `/hnads-status <id>` | Check battle status |
+| `/hnads-bet <id> [amount]` | View odds + place bet on active battle |
 | `/hnads-fill [count]` | Create + fill a lobby (testing) |
 
 ## How it Works

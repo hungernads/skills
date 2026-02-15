@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(sqlite3:*)",
+      "Bash(curl:*)",
+      "Bash(cast wallet new:*)",
+      "Bash(python3:*)",
+      "Bash(export FOUNDRY_DISABLE_NIGHTLY_WARNING=1:*)",
+      "Bash(cast balance:*)"
+    ]
+  }
+}
