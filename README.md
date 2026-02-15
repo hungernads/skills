@@ -31,6 +31,7 @@ After install, these slash commands are available:
 | `/hnads-sponsor <id>` | Sponsor a gladiator mid-battle (HP + combat boosts) |
 | `/hnads-fill [count]` | Create + fill a lobby (testing) |
 | `/hnads-setup` | Set up wallet for paid lobbies |
+| `/hnads-config` | Shared config (contracts, wallet, TX templates) |
 
 ## Classes
 
